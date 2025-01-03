@@ -31,11 +31,11 @@ export default ({ env }) => {
     postgres: {
       connection: {
         connectionString: env("DATABASE_URL"),
-        host: env("DATABASE_HOST", "cgvfvvfjhcveygnvroul.supabase.co"),
+        host: env("DATABASE_HOST"),
         port: env.int("DATABASE_PORT", 5432),
         database: env("DATABASE_NAME", "postgres"),
         user: env("DATABASE_USERNAME", "postgres"),
-        password: env("DATABASE_PASSWORD", "Mfh7wXsq4WgeQFgq"),
+        password: env("DATABASE_PASSWORD"),
         ssl: env.bool("DATABASE_SSL", false) && {
           key: env("DATABASE_SSL_KEY", undefined),
           cert: env("DATABASE_SSL_CERT", undefined),
@@ -50,8 +50,8 @@ export default ({ env }) => {
         schema: env("DATABASE_SCHEMA", "public"),
       },
       pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
-        max: env.int("DATABASE_POOL_MAX", 10),
+        min: env.int("DATABASE_POOL_MIN", 0),
+        max: env.int("DATABASE_POOL_MAX", 5),
       },
     },
     sqlite: {
